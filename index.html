@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hameed</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:'Poppins',sans-serif;
+        }
+        nav{
+            top:0;
+            width: 100%;
+            height:70px;
+            -webkit-backdrop-filter:blur(10px);
+            backdrop-filter:blur(10px);
+            background-color: rgb(20 20 20 / 27%);
+            position: fixed;
+            z-index: 9;
+        }
+        .menuE{
+            float: right;
+            cursor: pointer;
+        }
+        .menuE a{
+            display: inline-block;
+            font-size: 20px;
+            padding:20px;
+            color: white;
+            background: none;
+            border: none;
+            outline:none;
+            text-decoration: none;
+        }
+        .menuE a::after{
+            display: block;
+            content: '';
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color:white;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .menuE a:hover::after{
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .sectionE div{
+            display: inline-block;
+            overflow: hidden;
+        }
+        .mainE{
+            margin: 20px;
+        }
+        .sectionE{
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+            margin-top:100px;
+        }
+        .sectionE a {
+            margin-top: 5px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0px 16px;
+        }
+
+        .sectionE a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .nextE {
+            background-color: #000000;
+            color: white; 
+            border-radius: 50%;
+        }
+        .sectionE img{
+            transition: .2s ease-in-out;
+        }
+        .sectionE img:hover{
+            transform: scale(1.05);
+        }
+
+    :root{
+
+--body-font: 'Poppins', sans-serif;
+
+--big-font: 2rem;
+--h1-font: 3.6rem;
+--h2-font: 2.4rem;
+--h3-font: 2rem;
+--h4-font: 1.8rem;
+--normal-font: 1.6rem;
+--small-font: 1.4rem;
+--smaller-font: 1.3rem;
+
+--font-regular: 400;
+--font-medium: 500;
+--font-semi-bold: 600;
+
+--primary-color: #C87E4F;
+--primary-color-hover: #C2703D;
+--text-color: #333;
+--text-color-light: #888682;
+--border-color: #484848;
+--white-color: #FFF;
+--section-bg: #2C3034;
+
+--z-overlay: 10;
+--z-fixed: 100;
+
+--tran-0-2: 0.2s;
+--tran-0-3: 0.3s;
+--tran-0-5: 0.5s;
+}
+
+body{
+  overflow-x: hidden;
+  background-color: var(--white-color);
+}
+
+::selection{
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+::-webkit-scrollbar{
+  width: 8px;
+}
+::-webkit-scrollbar-track{
+  background-color: #f9f1ec;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+}
+::-webkit-scrollbar-thumb:hover{
+  border-radius: 1rem;
+  background-color: var(--primary-color-hover)
+}
+
+body,
+button,
+input{
+  font-family: var(--body-font);
+  font-size: var(--normal-font);
+  font-weight: var(--font-regular);
+  color: var(--text-color);
+}
+
+input{
+  outline: none;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+section img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Reusuable CSS */
+.section{
+  padding: 7rem 2rem;
+}
+.container{
+  max-width: 1030px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.flex{
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+.button{
+  border: none;
+  outline: none;
+  color: var(--white-color);
+  padding: 0.4rem 3rem;
+  border-radius: 3rem;
+  background-color: var(--primary-color);
+  transition: var(--tran-0-3);
+  cursor: pointer;
+}
+.button:hover{
+  background-color: var(--primary-color-hover);
+}
+.section-subtitle,
+.content-subtitle{
+  color: var(--primary-color);
+  font-size: var(--normal-font);
+  letter-spacing: 1px;
+  font-weight: var(--font-medium);
+  text-align: center;
+}
+.section-title,
+.content-title{
+  text-align: center;
+  font-size: var(--h2-font);
+  font-weight: var(--font-medium);
+  margin: 1rem 0;
+}
+.section-description,
+.content-description{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-description{
+  padding: 0 16rem;
+}
+
+
+.home{
+  height: 100vh;
+  width: 100%;
+}
+.swiper-slide{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+.home .swiper-slide::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: var(--z-overlay);
+}
+.home-img{
+  height: 100%;
+  width: 100%;
+}
+.swiper-navBtn{
+  height: 5rem;
+  width: 5rem;
+  color: var(--white-color);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: var(--tran-0-2);
+  opacity: 0;
+  visibility: visible;
+}
+.home:hover .swiper-navBtn,
+.review:hover .swiper-navBtn{
+  opacity: 1;
+}
+.swiper-navBtn:hover{
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.swiper-navBtn::after,
+.swiper-navBtn::before{
+  font-size: 2rem;
+}
+
+.swiper-button-next{
+  right: 16rem;
+}
+.swiper-button-prev{
+  left: 16rem;
+}
+
+.swiper-pagination-bullet{
+  background-color: var(--white-color);
+  opacity: 1;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-bottom: 2rem;
+  visibility: hidden;
+}
+.swiper-pagination-bullet-active{
+  border: 3px solid var(--white-color);
+  background-color: var(--primary-color);
+}
+.home-details{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: var(--z-fixed);
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  row-gap: 4rem;
+}
+
+.homeSubtitle{
+  text-align: center;
+  font-size: var(--normal-font);
+  color: var(--white-color);
+}
+.homeTitle{
+  text-align: center;
+  font-size: var(--big-font);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <img width="80px" src="image/logo.png"/>
+        <div class="menuE">
+            <a href="#home">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <section class="home" id="home">
+        <div class="home-content">
+                <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                        <img src="image/homeImg1.jpg" alt="" class="home-img">
+
+                                        <div class="home-details">
+                                                <div class="home-text">
+                                                        <h4 class="homeSubtitle">Furniture: witnesses to our lives.</h4>
+                                                        <h2 class="homeTitle">Transforming houses into homes, one piece at a time.</h2>
+                                                </div>
+
+                                                <button class="button" onclick="move_Cont()">Explore</button>
+                                        </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                        <img src="image/homeImg2.jpg" alt="" class="home-img">
+
+                                        <div class="home-details">
+                                                <div class="home-text">
+                                                        <h4 class="homeSubtitle">Design that looks and feels good.</h4>
+                                                        <h2 class="homeTitle">Furniture: harmonizing form, function, and aesthetics.</h2>
+                                                </div>
+
+                                                <button class="button" onclick="move_Cont()">Explore</button>
+                                        </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                        <img src="image/homeImg3.jpg" alt="" class="home-img">
+
+                                        <div class="home-details">
+                                                <div class="home-text">
+                                                        <h4 class="homeSubtitle">Functional art for everyday living.</h4>
+                                                        <h2 class="homeTitle">Invest in quality furniture, create lasting memories.</h2>
+                                                </div>
+
+                                                <button class="button" onclick="move_Cont()">Explore</button>
+                                        </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                        <img src="image/homeImg4.jpg" alt="" class="home-img">
+
+                                        <div class="home-details">
+                                                <div class="home-text">
+                                                        <h4 class="homeSubtitle">Furniture: the poetry of interiors.</h4>
+                                                        <h2 class="homeTitle">Furniture is not just an object; it's a reflection<br> of our personal style and a canvas for self-expression.</h2>
+                                                </div>
+
+                                                <button class="button" onclick="move_Cont()">Explore</button>
+                                        </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                        <img src="image/homeImg5.jpg" alt="" class="home-img">
+
+                                        <div class="home-details">
+                                                <div class="home-text">
+                                                        <h4 class="homeSubtitle">Furniture: the poetry of home.</h4>
+                                                        <h2 class="homeTitle">Good furniture is like a well-crafted poem, where<br> every line and curve carries meaning and evokes emotions.</h2>
+                                                </div>
+
+                                                <button class="button" onclick="move_Cont()">Explore</button>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                </div>
+        </div>
+</section>
+    <section class="sectionE">
+        <div class="mainE" style="background-color: rgb(252, 255, 89);width:250px;height:470px;">
+            <div style="background-color: rgb(166, 255, 0);width:100%;height:350px;">
+                <img width="100%" src="image/img1.jpg"/>
+            </div>
+            <div style="width:100%;height:120px;padding-left:5px;">
+                <h2 style="font-size: 25px;">Leather Sofa</h2>
+                <a href="#" class="nextE">&#8250;</a>
+            </div>
+        </div>
+        <div class="mainE" style="background-color: rgb(250, 228, 128);width:250px;height:470px;">
+            <div style="background-color: rgb(166, 255, 0);width:100%;height:350px;">
+                <img width="100%" src="image/img2.jpg"/>
+            </div>
+            <div style="width:100%;height:120px;padding-left:5px;">
+                <h2 style="font-size: 25px;">Cushion Chair</h2>
+                <a href="#" class="nextE">&#8250;</a>
+            </div>
+        </div>
+        <div class="mainE" style="background-color: rgb(176, 255, 102);width:250px;height:470px;">
+            <div style="background-color: rgb(166, 255, 0);width:100%;height:350px;">
+                <img width="100%" src="image/img3.jpg"/>
+            </div>
+            <div style="width:100%;height:120px;padding-left:5px;">
+                <h2 style="font-size: 25px;">Recliner Chair</h2>
+                <a href="#" class="nextE">&#8250;</a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+ <script src="https://unpkg.com/scrollreveal"></script>
+ <script type="text/javascript">
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+
+    const body = document.querySelector('body'),
+          navMenu = body.querySelector('.menu-content'),
+          navOpenBtn = body.querySelector('.navOpen-btn'),
+          navCloseBtn = navMenu.querySelector('.navClose-btn');
+
+    if(navMenu && navOpenBtn){
+      navOpenBtn.addEventListener("click", () =>{
+        navMenu.classList.add("open");
+        body.style.overflowY = "hidden";
+      })
+    }
+
+    if(navMenu && navCloseBtn){
+      navCloseBtn.addEventListener("click", () =>{
+        navMenu.classList.remove("open");
+        body.style.overflowY = "scroll";
+      })
+    }
+
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.pageYOffset;
+
+      if(scrollY > 5){
+        document.querySelector("header").classList.add("header-active");
+      }else{
+        document.querySelector("header").classList.remove("header-active");
+      }
+
+
+      const scrollUpBtn = document.querySelector('.scrollUp-btn');
+
+      if(scrollY > 250){
+        scrollUpBtn.classList.add("scrollUpBtn-active");
+      }else{
+        scrollUpBtn.classList.remove("scrollUpBtn-active");
+      }
+      
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach(section =>{
+        const sectionHeight = section.offsetHeight,
+              sectionTop = section.offsetTop - 100;
+
+              let navId = document.querySelector(`.menu-content a[href='#${section.id}']`);
+              if(scrollY > sectionTop && scrollY <=  sectionTop + sectionHeight){
+                navId.classList.add("active-navlink");           
+              }else{
+                navId.classList.remove("active-navlink");     
+              }
+              
+              navId.addEventListener("click", () => {
+                navMenu.classList.remove("open");
+                body.style.overflowY = "scroll";
+              })
+      })
+    });  
+
+      ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2000,
+        delay: 400,
+      });
+      
+      ScrollReveal().reveal(`.section-title, .section-subtitle, .section-description, .brand-image, .tesitmonial, .newsletter 
+      .logo-content, .newsletter-inputBox, .newsletter-mediaIcon`, {interval:100,})
+      
+      ScrollReveal().reveal(`.about-imageContent, .menu-items,.s-cont span,.s-cont li`, {origin: 'left'})
+      ScrollReveal().reveal(`.about-details, .time-table,.brand-image`, {origin: 'right'})
+      ScrollReveal().reveal(`.s-cont p`,{origin:'top'})
+
+          function backHome(){
+          window.history.go(-1)
+        }
+        function move_Cont(){
+    window.scrollTo({top:1270,behavior:"smooth"});
+}
+</script>
+</body>
+</html>
